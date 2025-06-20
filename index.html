@@ -3,31 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validación de Edad</title>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aca coloca una descripcion del proyecto">
+    <meta name="keywords" content="age,web,name">
+    <meta name="sitedomain" content="aca coloca el dominio o link de github: ">
+    <meta name="organization" content="https://github.com/miguelcoderR">
+    <meta name="author" content="MIGUEL ANGEL ORTEGA CANTILLO">
+    <meta name="designer" content="MIGUEL ANGEL ORTEGA CANTILLO">
+    <meta name="copyright" content="© 2025 miguelcoderR. All rights reserved">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="15days">
+    <title>Age Verifier</title>
+</head>
+    <title>Age Verifier</title>
     <link rel="stylesheet" href="./styles.css">
+
 </head>
 <body>
     <div class="container">
-        <h1>Verificador de Edad</h1>
+        <h1>Age Verifier</h1>
         
         <div class="form-group">
-            <label for="name">Nombre completo:</label>
-            <input type="text" id="name" placeholder="Ingresa tu nombre">
+            <label for="name">Full name:</label>
+            <input type="text" id="name" placeholder="Enter your name">
         </div>
         
         <div class="form-group">
-            <label for="age">Edad:</label>
-            <input type="number" id="age" placeholder="Ingresa tu edad en números">
+            <label for="age">age:</label>
+            <input type="number" id="age" placeholder="Enter your age in numbers">
         </div>
         
-        <button onclick="validateAge()">Verificar Edad</button>
+        <button onclick="validateAge()">Verify Age</button>
         
         <div id="result" class="result"></div>
     </div>
 
     <script>
         function validateAge() {
-            // Obtener valores del formulario
+            // Get form values
             const name = document.getElementById('name').value.trim();
             const ageInput = document.getElementById('age').value.trim();
             const resultDiv = document.getElementById('result');
@@ -35,34 +52,35 @@
             // Resetear el resultado
             resultDiv.style.display = 'none';
             
-            // Validar que se ingresó un nombre
+            // Reset the result
             if (!name) {
-                showResult('Por favor ingresa tu nombre', 'error');
+                showResult('Please enter your name', 'error');
                 return;
             }
             
-            // Validar que se ingresó una edad
+            // Validate that an age was entered
             if (!ageInput) {
-                showResult('Por favor ingresa tu edad', 'error');
+                showResult('Please enter your age', 'error');
                 return;
             }
             
-            // Convertir edad a número
+            // Convert age to number
             const age = Number(ageInput);
             
-            // Validar que la edad sea un número válido
-            // Validar que la edad esté entre 1 y 100
+            // Validate that age is a valid number
+            // Validate that age is between 1 and 100
+
             if (isNaN(age) || age < 1 || age > 100) {
-                showResult('Error: Por favor ingresa una edad válida entre 1 y 100 años.', 'error');
-                console.error('Error: Edad fuera del rango permitido', ageInput);
+                showResult('Error: Please enter a valid age between 1 and 100 years.', 'error');
+                console.error('Error: Age outside the allowed range', ageInput);
                 return;
                 }
             
-            // Determinar el mensaje según la edad
+            // Determine the message according to age
             if (age < 18) {
-                showResult(`<span class="age-icon">👶</span> Hola ${name}, eres menor de edad. ¡Sigue aprendiendo y disfrutando del código!`, 'info');
+                showResult(`<span class="age-icon">👶</span> Hello ${name}, You're a minor. Keep learning and enjoying coding!`, 'info');
             } else {
-                showResult(`<span class="age-icon">👨‍💻</span> Hola ${name}, eres mayor de edad. ¡Prepárate para grandes oportunidades en el mundo de la programación!`, 'success');
+                showResult(`<span class="age-icon">👨‍💻</span> Hello ${name}, You're of legal age. Get ready for great opportunities in the world of programming!`, 'success');
             }
         }
         
@@ -72,7 +90,7 @@
             resultDiv.className = 'result ' + type;
             resultDiv.style.display = 'block';
             
-            // También mostrar en consola
+            // Also show in console
             if (type === 'error') {
                 console.error(message);
             } else {
