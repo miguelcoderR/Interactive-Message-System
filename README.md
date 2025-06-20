@@ -25,6 +25,9 @@ This project is an interactive web application that allows users to verify wheth
 - Open index.html in your favorite browser.
 - Enter your name and age, then click Verify Age.
 - See the dynamic response instantly without reloading the page.
+
+
+
 📦 Potential Improvements
 - Store user data in local storage.
 - Offer age-based educational recommendations.
