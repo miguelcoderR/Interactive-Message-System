@@ -13,10 +13,15 @@ This project is an interactive web application that allows users to verify wheth
 - HTML5: semantic structure for the form.
 - CSS3: modern styling, shadows, animations, and responsive design with media queries.
 - JavaScript: event handling, data validation, DOM manipulation, and console messaging.
-🎯 Project Structure
-.
+🎯 Project Structure.
+
+
 ├── index.html       # Main web page
+
+
 ├── styles.css       # Custom styles
+
+
 └── README.md        # Project documentation
 
 
