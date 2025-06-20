@@ -1,5 +1,5 @@
 function validateAge() {
-            // Obtener valores del formulario
+            // Get form values
             const name = document.getElementById('name').value.trim();
             const ageInput = document.getElementById('age').value.trim();
             const resultDiv = document.getElementById('result');
@@ -7,34 +7,35 @@ function validateAge() {
             // Resetear el resultado
             resultDiv.style.display = 'none';
             
-            // Validar que se ingresó un nombre
+            // Reset the result
             if (!name) {
-                showResult('Por favor ingresa tu nombre', 'error');
+                showResult('Please enter your name', 'error');
                 return;
             }
             
-            // Validar que se ingresó una edad
+            // Validate that an age was entered
             if (!ageInput) {
-                showResult('Por favor ingresa tu edad', 'error');
+                showResult('Please enter your age', 'error');
                 return;
             }
             
-            // Convertir edad a número
+            // Convert age to number
             const age = Number(ageInput);
             
-            // Validar que la edad sea un número válido
-            // Validar que la edad esté entre 1 y 100
+            // Validate that age is a valid number
+            // Validate that age is between 1 and 100
+
             if (isNaN(age) || age < 1 || age > 100) {
-                showResult('Error: Por favor ingresa una edad válida entre 1 y 100 años.', 'error');
-                console.error('Error: Edad fuera del rango permitido', ageInput);
+                showResult('Error: Please enter a valid age between 1 and 100 years.', 'error');
+                console.error('Error: Age outside the allowed range', ageInput);
                 return;
                 }
             
-            // Determinar el mensaje según la edad
+            // Determine the message according to age
             if (age < 18) {
-                showResult(`<span class="age-icon">👶</span> Hola ${name}, eres menor de edad. ¡Sigue aprendiendo y disfrutando del código!`, 'info');
+                showResult(`<span class="age-icon">👶</span> Hello ${name}, You're a minor. Keep learning and enjoying coding!`, 'info');
             } else {
-                showResult(`<span class="age-icon">👨‍💻</span> Hola ${name}, eres mayor de edad. ¡Prepárate para grandes oportunidades en el mundo de la programación!`, 'success');
+                showResult(`<span class="age-icon">👨‍💻</span> Hello ${name}, You're of legal age. Get ready for great opportunities in the world of programming!`, 'success');
             }
         }
         
@@ -44,7 +45,7 @@ function validateAge() {
             resultDiv.className = 'result ' + type;
             resultDiv.style.display = 'block';
             
-            // También mostrar en consola
+            // Also show in console
             if (type === 'error') {
                 console.error(message);
             } else {
